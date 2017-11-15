@@ -56,4 +56,12 @@ var documenterSearchIndex = {"docs": [
     "text": "The save function from the FileIO.jl package is the main function to save tabular data to disc. The first argument to the save function is the filename you want to use for the data. The file extension of that filename will determine in what format the data will be written to disc. The second argument is the table you want to write to disc. Here is a simple example that writes some data to a CSV file:using Dataverse\n\ndf = DataFrame(Name=[\"Jim\", \"Sally\", \"John\"], Age=[23., 56., 34.])\n\nsave(\"mydata.csv\", df)You can also use the pipe syntax with the save function:using Dataverse\n\ndf = DataFrame(Name=[\"Jim\", \"Sally\", \"John\"], Age=[23., 56., 34.])\n\ndf |> save(\"mydata.csv\")The save function works with any tabular data structure, not just DataFrames and it supports many different file formats. The following code shows how you can load data fro a CSV file, filter it and then write it out directly as a Feather file, without ever materializing it into a DataFrame:using Dataverse\n\nload(\"mydata.csv\") |> @filter(_.age>23) |> save(\"mydata.feather\")"
 },
 
+{
+    "location": "fileio.html#Alternative-Packages-1",
+    "page": "Tabular File IO",
+    "title": "Alternative Packages",
+    "category": "section",
+    "text": "This section described how you can use packages from the Dataverse to load and save data. While those are useful, they are not the only julia packages that you can use for tabular file IO, in fact there are many other excellent packages for those tasks. I encourage you to explore those packages and use them whenever they are a good fit for your work. Here is an (incomplete) list of other packages you might want to take a look at:CSV.jl.\nuCSV.jl.\nTextParse.jl (*).\nReadWriteDlm2.jl.\nFeather.jl (*).\nReadStat.jl (*).\nExcelReaders.jl (*).\nTaro.jl.\nBedgraph.jl (*).\nDBFTables.jl.\nRData.jl.Note that some of these packages actually power the Dataverse file IO packages, I have denoted those packages with (*)."
+},
+
 ]}
