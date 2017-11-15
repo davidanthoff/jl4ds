@@ -4,7 +4,8 @@ makedocs(
     format = :html,
     sitename = "Julia for Data Science",
     pages = [
-        "index.md"
+        "index.md",
+        "fileio.md"
     ]
 )
 
