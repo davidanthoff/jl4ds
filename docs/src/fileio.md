@@ -84,3 +84,26 @@ using Dataverse
 
 load("mydata.csv") |> @filter(_.age>23) |> save("mydata.feather")
 ```
+
+## Alternative Packages
+
+This section described how you can use packages from the Dataverse to
+load and save data. While those are useful, they are not the only julia
+packages that you can use for tabular file IO, in fact there are many other
+excellent packages for those tasks. I encourage you to explore those
+packages and use them whenever they are a good fit for your work. Here
+is an (incomplete) list of other packages you might want to take a look
+at:
+- [CSV.jl](https://github.com/JuliaData/CSV.jl).
+- [uCSV.jl](https://github.com/cjprybol/uCSV.jl).
+- [TextParse.jl](https://github.com/JuliaComputing/TextParse.jl) (*).
+- [ReadWriteDlm2.jl](https://github.com/strickek/ReadWriteDlm2.jl).
+- [Feather.jl](https://github.com/JuliaData/Feather.jl) (*).
+- [ReadStat.jl](https://github.com/WizardMac/ReadStat.jl) (*).
+- [ExcelReaders.jl](https://github.com/davidanthoff/ExcelReaders.jl) (*).
+- [Taro.jl](https://github.com/aviks/Taro.jl).
+- [Bedgraph.jl](https://github.com/CiaranOMara/Bedgraph.jl) (*).
+- [DBFTables.jl](https://github.com/JuliaData/DBFTables.jl).
+- [RData.jl](https://github.com/JuliaStats/RData.jl).
+Note that some of these packages actually power the Dataverse file IO
+packages, I have denoted those packages with (*).
