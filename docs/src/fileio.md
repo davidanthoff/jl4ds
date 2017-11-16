@@ -76,7 +76,7 @@ df |> save("mydata.csv")
 ```
 The `save` function works with any tabular data structure, not just
 `DataFrame`s and it supports many different file formats. The following
-code shows how you can load data fro a CSV file, filter it and then write
+code shows how you can load data from a CSV file, filter it and then write
 it out directly as a Feather file, without ever materializing it into a
 `DataFrame`:
 ```julia
