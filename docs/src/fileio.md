@@ -64,7 +64,7 @@ df = load("https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/tes
 The `save` function from the [FileIO.jl](https://github.com/JuliaIO/FileIO.jl)
 package is the main function to save tabular data to disc. The first
 argument to the `save` function is the filename you want to use for the
-data. The file extension of that filename will determine in what format
+file. The file extension of that filename will determine in what format
 the data will be written to disc. The second argument is the table you want
 to write to disc. Here is a simple example that writes some data to a
 CSV file:
@@ -93,6 +93,41 @@ using Dataverse
 
 load("mydata.csv") |> @filter(_.age>23) |> save("mydata.feather")
 ```
+For some file formats you can pass additional configuration arguments to
+the `save` function that control in detail how the file is written to
+disc. The following example writes a table to disc as a CSV file, but
+uses a non-standard delimeter character and also does not write a
+header to the file:
+```julia
+using Dataverse
+
+df = DataFrame(Name=["Jim", "Sally", "John"], Age=[23., 56., 34.])
+
+df |> save("mydata.csv", delim=';', header=false)
+```
+
+## File Formats
+
+This section will teach you about a number of important file formats
+in the data science world and how to use them with the `load` and
+`save` function in julia.
+
+### CSV Files
+
+[TODO]
+
+### Feather Files
+
+[TODO]
+
+### Excel Files
+
+[TODO]
+
+### Stata, SPSS, and SAS Files
+
+[TODO]
+
 
 ## Alternative Packages
 
