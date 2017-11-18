@@ -5,6 +5,7 @@ makedocs(
     sitename = "Julia for Data Science",
     pages = [
         "index.md",
+        "setup.md",
         "fileio.md"
     ]
 )
