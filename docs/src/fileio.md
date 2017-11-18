@@ -50,6 +50,15 @@ argument to the `load` function for Excel files.
 
 A full list of supported file formats is provided later in this chapter.
 
+You can also use the `load` function to acquire data from a remote server
+by passing a URI as the filename. The following code loads a CSV file
+from a remote server:
+```julia
+using Dataverse
+
+df = load("https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/data.csv") |> DataFrame
+```
+
 ### Saving Data
 
 The `save` function from the [FileIO.jl](https://github.com/JuliaIO/FileIO.jl)
