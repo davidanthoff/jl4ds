@@ -32,7 +32,7 @@ df = load("mydata.csv") |> DataFrame
 ```
 The pipe syntax is particularly useful when you want to apply some data
 transformation to the data that you are loading. For example, you can
-filter the data before you materialize into a `DataFrame` like this:
+filter the data before you materialize it into a `DataFrame` like this:
 ```julia
 using Dataverse
 
