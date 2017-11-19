@@ -89,19 +89,43 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#File-Formats-1",
-    "page": "Tabular File IO",
-    "title": "File Formats",
-    "category": "section",
-    "text": "This section will teach you about a number of important file formats in the data science world and how to use them with the load and save function in julia."
-},
-
-{
     "location": "fileio.html#CSV-Files-1",
     "page": "Tabular File IO",
     "title": "CSV Files",
     "category": "section",
-    "text": "[TODO]"
+    "text": "[TODO add general description of CSV files]"
+},
+
+{
+    "location": "fileio.html#Loading-CSV-Files-1",
+    "page": "Tabular File IO",
+    "title": "Loading CSV Files",
+    "category": "section",
+    "text": "If you pass a filename with the extension *.csv to the load function, FileIO.jl will use the CSVFiles.jl package to load that file. The package supports filenames that point to a file on your local computer and URLs that point to a file on remote server:using Dataverse\n\n# Load a local file\ndf = load(\"mycsv.csv\") |> DataFrame\n\n# Load a remote file\nurl = \"https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/data.csv\"\ndf = load(url) |> DataFrame"
+},
+
+{
+    "location": "fileio.html#Specifying-a-different-delimter-character-1",
+    "page": "Tabular File IO",
+    "title": "Specifying a different delimter character",
+    "category": "section",
+    "text": "By default CSV files use a comma (,) to separate content in different columns. While that is the most common case, CSV files often use a different character to separate content in different columns. For example, you might want to read a file like this example that uses a semicolon (;) to separate columns:Name;Age\nJohn;34\nSally;52You can tell load to use a different character as the delimiter between columns by passing a Char value as the second argument to the load function:using Dataverse\n\ndf = load(\"mycsvfile_with_semicolon.csv\", ';') |> DataFrameYou can tell load to use any character as the column delimiter signal. Another common case besides the semicolon is a tab charachter, which you can pass easily enter as '\\t'."
+},
+
+{
+    "location": "fileio.html#Column-Names-1",
+    "page": "Tabular File IO",
+    "title": "Column Names",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "fileio.html#Saving-CSV-Files-1",
+    "page": "Tabular File IO",
+    "title": "Saving CSV Files",
+    "category": "section",
+    "text": ""
 },
 
 {
