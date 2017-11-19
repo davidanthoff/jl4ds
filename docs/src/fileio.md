@@ -106,25 +106,55 @@ df = DataFrame(Name=["Jim", "Sally", "John"], Age=[23., 56., 34.])
 df |> save("mydata.csv", delim=';', header=false)
 ```
 
-## File Formats
+## CSV Files
 
-This section will teach you about a number of important file formats
-in the data science world and how to use them with the `load` and
-`save` function in julia.
+[TODO add general description of CSV files]
 
-### CSV Files
+### Loading CSV Files
+
+If you pass a filename with the extension `*.csv` to the `load` function, [FileIO.jl]() will use the [CSVFiles.jl]() package to load that file. The package supports filenames that point to a file on your local computer and URLs that point to a file on remote server:
+```julia
+using Dataverse
+
+# Load a local file
+df = load("mycsv.csv") |> DataFrame
+
+# Load a remote file
+url = "https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/data.csv"
+df = load(url) |> DataFrame
+```
+
+#### Specifying a different delimter character
+
+By default CSV files use a comma (`,`) to separate content in different columns. While that is the most common case, CSV files often use a different character to separate content in different columns. For example, you might want to read a file like this example that uses a semicolon (`;`) to separate columns:
+```
+Name;Age
+John;34
+Sally;52
+```
+You can tell `load` to use a different character as the delimiter between columns by passing a `Char` value as the second argument to the `load` function:
+```julia
+using Dataverse
+
+df = load("mycsvfile_with_semicolon.csv", ';') |> DataFrame
+```
+You can tell `load` to use any character as the column delimiter signal. Another common case besides the semicolon is a tab charachter, which you can pass easily enter as `'\t'`.
+
+#### Column Names
+
+
+
+### Saving CSV Files
+
+## Feather Files
 
 [TODO]
 
-### Feather Files
+## Excel Files
 
 [TODO]
 
-### Excel Files
-
-[TODO]
-
-### Stata, SPSS, and SAS Files
+## Stata, SPSS, and SAS Files
 
 [TODO]
 
