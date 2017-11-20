@@ -130,7 +130,7 @@ df = load(url) |> DataFrame
 
 #### Delimter character
 
-By default, CSV files use a comma (`,`) to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon (`;`) to separate columns, like the following example:
+By default, CSV files use a comma `,` to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon `;` to separate columns, like the following example:
 ```
 Name;Age
 John;34
@@ -248,7 +248,7 @@ Note how we have to escape the `\` character itself in the julia string: `\` is 
 
 ### Saving CSV Files
 
-To save a table as a CSV file, call the `save` function with a filename that has a `*.csv` extension. [FileIO.jl]() will then use the [CSVFiles.jl]() package to save the table. The following example shows how to save a table as a CSV file:
+To save a table as a CSV file, call the `save` function with a filename that has a `*.csv` extension. [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will then use the [CSVFiles.jl](https://github.com/davidanthoff/CSVFiles.jl) package to save the table. The following example shows how to save a table as a CSV file:
 ```julia
 using Dataverse
 
