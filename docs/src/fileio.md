@@ -128,7 +128,7 @@ url = "https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/da
 df = load(url) |> DataFrame
 ```
 
-#### Specifying a different delimter character
+#### Delimter character
 
 By default, CSV files use a comma (`,`) to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon (`;`) to separate columns, like the following example:
 ```
@@ -248,7 +248,58 @@ Note how we have to escape the `\` character itself in the julia string: `\` is 
 
 ### Saving CSV Files
 
-[TODO]
+To save a table as a CSV file, call the `save` function with a filename that has a `*.csv` extension. [FileIO.jl]() will then use the [CSVFiles.jl]() package to save the table. The following example shows how to save a table as a CSV file:
+```julia
+using Dataverse
+
+df = DataFrame(name=["John", "Sally"], age=[23.,25.])
+
+df |> save("mydata.csv")
+```
+The `save` function accepts a number of arguments when saving a CSV file that control the precise format of the CSV file that is written.
+
+#### Delimter character
+
+You can control which character should separate columns in the result file by passing the keyword argument `delim` to the `save` function. The following code uses a semicolon `;` as the column separator character:
+```julia
+using Dataverse
+
+df = DataFrame(name=["John", "Sally"], age=[23.,25.])
+
+df |> save("mydata.csv", delim=';')
+```
+
+#### Header
+
+By default `save` writes the names of the columns as the first line in the CSV file. You can change that behavior by passing the `header=false` keyword argument:
+```julia
+using Dataverse
+
+df = DataFrame(name=["John", "Sally"], age=[23.,25.])
+
+df |> save("mydata.csv", header=false)
+```
+This will write a CSV file that looks like this:
+```
+"John",23.
+"Sally",25.
+```
+#### Quote and Escape Character
+
+The `quotechar` and `escapechar` keyword arguments control how text columns get written to disc. By default `save` will surround any text by double quotation marks `"`, and use a backslash `\` to escape any occurrence of the quote character in the actual text of a column. The following code instead uses plus `+` as the quote character and a forward slash `/` as the escape character:
+```julia
+using Dataverse
+
+df = DataFrame(name=["John + Jim", "Sally"], age=[23.,25.])
+
+df |> save("mydata.csv", quotechar='+', escapechar='/')
+```
+This code will write the following CSV file:
+```
++name+,+age+
++John /+ Jim+,23.
++Sally+,25.
+```
 
 ## Feather Files
 
