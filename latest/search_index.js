@@ -113,9 +113,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Specifying-a-different-delimter-character-1",
+    "location": "fileio.html#Delimter-character-1",
     "page": "Tabular File IO",
-    "title": "Specifying a different delimter character",
+    "title": "Delimter character",
     "category": "section",
     "text": "By default, CSV files use a comma (,) to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon (;) to separate columns, like the following example:Name;Age\nJohn;34\nSally;52You can tell load to use a different character as the delimiter between columns by passing a Char value as the second argument to the load function:using Dataverse\n\ndf = load(\"mycsvfile_with_semicolon.csv\", ';') |> DataFrameYou can tell load to use any character as the column delimiter signal. Another common case besides the semicolon is a tab character (written as '\\t' in julia)."
 },
@@ -157,7 +157,31 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Saving CSV Files",
     "category": "section",
-    "text": ""
+    "text": "To save a table as a CSV file, call the save function with a filename that has a *.csv extension. FileIO.jl will then use the CSVFiles.jl package to save the table. The following example shows how to save a table as a CSV file:using Dataverse\n\ndf = DataFrame(name=[\"John\", \"Sally\"], age=[23.,25.])\n\ndf |> save(\"mydata.csv\")The save function accepts a number of arguments when saving a CSV file that control the precise format of the CSV file that is written."
+},
+
+{
+    "location": "fileio.html#Delimter-character-2",
+    "page": "Tabular File IO",
+    "title": "Delimter character",
+    "category": "section",
+    "text": "You can control which character should separate columns in the result file by passing the keyword argument delim to the save function. The following code uses a semicolon ; as the column separator character:using Dataverse\n\ndf = DataFrame(name=[\"John\", \"Sally\"], age=[23.,25.])\n\ndf |> save(\"mydata.csv\", delim=';')"
+},
+
+{
+    "location": "fileio.html#Header-1",
+    "page": "Tabular File IO",
+    "title": "Header",
+    "category": "section",
+    "text": "By default save writes the names of the columns as the first line in the CSV file. You can change that behavior by passing the header=false keyword argument:using Dataverse\n\ndf = DataFrame(name=[\"John\", \"Sally\"], age=[23.,25.])\n\ndf |> save(\"mydata.csv\", header=false)This will write a CSV file that looks like this:\"John\",23.\n\"Sally\",25."
+},
+
+{
+    "location": "fileio.html#Quote-and-Escape-Character-2",
+    "page": "Tabular File IO",
+    "title": "Quote and Escape Character",
+    "category": "section",
+    "text": "The quotechar and escapechar keyword arguments control how text columns get written to disc. By default save will surround any text by double quotation marks \", and use a backslash \\ to escape any occurrence of the quote character in the actual text of a column. The following code instead uses plus + as the quote character and a forward slash / as the escape character:using Dataverse\n\ndf = DataFrame(name=[\"John + Jim\", \"Sally\"], age=[23.,25.])\n\ndf |> save(\"mydata.csv\", quotechar='+', escapechar='/')This code will write the following CSV file:+name+,+age+\n+John /+ Jim+,23.\n+Sally+,25."
 },
 
 {
@@ -165,7 +189,23 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Feather Files",
     "category": "section",
-    "text": "[TODO]"
+    "text": "[TODO add general description of Feather files]"
+},
+
+{
+    "location": "fileio.html#Loading-Feather-Files-1",
+    "page": "Tabular File IO",
+    "title": "Loading Feather Files",
+    "category": "section",
+    "text": "If you pass a filename with the extension *.feather to the load function, FileIO.jl will use the FeatherFiles.jl package to load that file. The following example demonstrates how you can load a Feather file:using Dataverse\n\n# Load a local file\ndf = load(\"mydata.feather\") |> DataFrameThere are no options you can specify when loading a Feather file."
+},
+
+{
+    "location": "fileio.html#Saving-Feather-Files-1",
+    "page": "Tabular File IO",
+    "title": "Saving Feather Files",
+    "category": "section",
+    "text": "You can save a table as a Feather file by calling the save function with a filename that has the *.feather extension. In that case FileIO.jl will use the FeatherFiles.jl package to save that file. This example shows you how to save a table as a Feather file:using Dataverse\n\ndf = DataFrame(name=[\"John\", \"Sally\"], age=[23.,25.])\n\ndf |> save(\"mydata.feather\")No other options can be specified when saving a Feather file."
 },
 
 {
