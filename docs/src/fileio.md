@@ -20,13 +20,13 @@ a data structure like a `DataFrame`. You can do that easily by passing
 the return value from the `load` function to the `DataFrame` constructor,
 like this:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(load("mydata.csv"))
 ```
 You can also use the pipe syntax to achieve the same result:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.csv") |> DataFrame
 ```
@@ -34,14 +34,14 @@ The pipe syntax is particularly useful when you want to apply some data
 transformation to the data that you are loading. For example, you can
 filter the data before you materialize it into a `DataFrame` like this:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.csv") |> @filter(_.age>20) |> DataFrame
 ```
 The `load` function can load many different tabular file formats. The
 following code loads an Excel file:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.xlsx", "Sheet1") |> DataFrame
 ```
@@ -54,7 +54,7 @@ You can also use the `load` function to acquire data from a remote server
 by passing a URI as the filename. The following code loads a CSV file
 from a remote server:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/data.csv") |> DataFrame
 ```
@@ -69,7 +69,7 @@ the data will be written to disc. The second argument is the table you want
 to write to disc. Here is a simple example that writes some data to a
 CSV file:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(Name=["Jim", "Sally", "John"], Age=[23., 56., 34.])
 
@@ -77,7 +77,7 @@ save("mydata.csv", df)
 ```
 You can also use the pipe syntax with the `save` function:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(Name=["Jim", "Sally", "John"], Age=[23., 56., 34.])
 
@@ -89,7 +89,7 @@ code shows how you can load data from a CSV file, filter it and then write
 it out directly as a Feather file, without ever materializing it into a
 `DataFrame`:
 ```julia
-using Queryverse
+using Dataverse
 
 load("mydata.csv") |> @filter(_.age>23) |> save("mydata.feather")
 ```
@@ -99,7 +99,7 @@ disc. The following example writes a table to disc as a CSV file, but
 uses a non-standard delimeter character and also does not write a
 header to the file:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(Name=["Jim", "Sally", "John"], Age=[23., 56., 34.])
 
@@ -118,7 +118,7 @@ df |> save("mydata.csv", delim=';', header=false)
 
 If you pass a filename with the extension `*.csv` to the `load` function, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [CSVFiles.jl](https://github.com/davidanthoff/CSVFiles.jl) package to load that file. The package supports filenames that point to a file on your local computer and URLs that point to a file on remote server:
 ```julia
-using Queryverse
+using Dataverse
 
 # Load a local file
 df = load("mycsv.csv") |> DataFrame
@@ -138,7 +138,7 @@ Sally;52
 ```
 You can tell `load` to use a different character as the delimiter between columns by passing a `Char` value as the second argument to the `load` function:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mycsvfile_with_semicolon.csv", ';') |> DataFrame
 ```
@@ -159,7 +159,7 @@ But sometimes CSV files don't have a special header row with the column names, a
 ```
 You can indicate this situation by calling the `load` function with the keyword argument `header_exists=false`:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("myfile.csv", header_exists=false) |> DataFrame
 ```
@@ -169,7 +169,7 @@ The `colnames` keyword argument of the `load` function allows you to specify you
 
 When you pass an array of `String`s, you indicate that you want the names in the array to be used as the column names in the resulting table. The following code loads a CSV file and specifies custom column names:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.csv", colnames=["name", "age", "children"]) |> DataFrame
 ```
@@ -177,7 +177,7 @@ When you use the `colnames` argument with `header_exists=true` (or don't specify
 
 Sometimes you load some data from a CSV file that has a column header and you want to replace the names of just a few columns. While you could pass an array of `String`s to the `colnames` argument, it would cumbersome: you would have to specify the names of all columns, even the ones that you don't want to rename. In this situation you can pass a `Dict` to the `colnames` argument instead. Each element in the `Dict` is one renaming rule that `load` should apply to the columns it loads from the file. The key for each element specifies which column should be renamed, and the value the new name. The key can be specified either as a `String`, in which case it refers to the column name that is present in the file, or as an `Int`, in which case it refers to the position of the column that should be renamed. The values in the `Dict` always have to be `String`s, i.e. the new names. Note that you cannot pass a `Dict` to `colnames` when you call `load` with `header_exists=false`. The following code example will load a CSV file, and rename the column with the original name "Age" to "age", and the third column to "children". All other columns will keep the names that are specified in the file:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.csv", colnames=Dict("Age"=>"age", 3=>"children"))
 ```
@@ -196,7 +196,7 @@ Name,Age,Children
 ```
 In this example the first two lines in the file contain some meta information that is not part of the table data itself. You can load such a file like this:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.csv", skiplines_begin=2) |> DataFrame
 ```
@@ -226,7 +226,7 @@ Name,Age
 ```
 The keyword argument `quotechar` of the `load` function allows you to specify the quote character used in the file you want to load. The above file could be loaded like this:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.csv", quotechar='\'') |> DataFrame
 ```
@@ -240,7 +240,7 @@ Text,Number
 ```
 The content of the first column in the first row here should be read as `This text contains a " mark`. You can specify what character is used as the escape character with the `escapechar` keyword argument:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.csv", escapechar='\\')
 ```
@@ -250,7 +250,7 @@ Note how we have to escape the `\` character itself in the julia string: `\` is 
 
 To save a table as a CSV file, call the `save` function with a filename that has a `*.csv` extension. [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will then use the [CSVFiles.jl](https://github.com/davidanthoff/CSVFiles.jl) package to save the table. The following example shows how to save a table as a CSV file:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(name=["John", "Sally"], age=[23.,25.])
 
@@ -262,7 +262,7 @@ The `save` function accepts a number of arguments when saving a CSV file that co
 
 You can control which character should separate columns in the result file by passing the keyword argument `delim` to the `save` function. The following code uses a semicolon `;` as the column separator character:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(name=["John", "Sally"], age=[23.,25.])
 
@@ -273,7 +273,7 @@ df |> save("mydata.csv", delim=';')
 
 By default `save` writes the names of the columns as the first line in the CSV file. You can change that behavior by passing the `header=false` keyword argument:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(name=["John", "Sally"], age=[23.,25.])
 
@@ -288,7 +288,7 @@ This will write a CSV file that looks like this:
 
 The `quotechar` and `escapechar` keyword arguments control how text columns get written to disc. By default `save` will surround any text by double quotation marks `"`, and use a backslash `\` to escape any occurrence of the quote character in the actual text of a column. The following code instead uses plus `+` as the quote character and a forward slash `/` as the escape character:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(name=["John + Jim", "Sally"], age=[23.,25.])
 
@@ -309,7 +309,7 @@ This code will write the following CSV file:
 
 If you pass a filename with the extension `*.feather` to the `load` function, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [FeatherFiles.jl](https://github.com/davidanthoff/FeatherFiles.jl) package to load that file. The following example demonstrates how you can load a Feather file:
 ```julia
-using Queryverse
+using Dataverse
 
 # Load a local file
 df = load("mydata.feather") |> DataFrame
@@ -320,7 +320,7 @@ There are no options you can specify when loading a Feather file.
 
 You can save a table as a Feather file by calling the `save` function with a filename that has the `*.feather` extension. In that case [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [FeatherFiles.jl](https://github.com/davidanthoff/FeatherFiles.jl) package to save that file. This example shows you how to save a table as a Feather file:
 ```julia
-using Queryverse
+using Dataverse
 
 df = DataFrame(name=["John", "Sally"], age=[23.,25.])
 
@@ -340,26 +340,26 @@ To load an Excel file, you always need to specify either a sheet name or range i
 
 The following example loads the sheet `Sheet1` from an Excel file:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.xlsx", "Sheet1") |> DataFrame
 ```
 When you pass a sheet name to `load` without any other option, it will automatically skip any initial empty rows or columns in the Excel file, and then read the remaining content on the sheet. You can also manually control what data should be read from the sheet by using a number of keyword arguments. The `skipstartrows` argument takes an `Int`, when specified the `load` function will ignore the first `skipstartrows` rows in the file. Note that in this case `load` will no longer attempt to automatically figure out on which row your data is starting in the sheet. The `skipstartcols` option works the same way, but for columns. The `nrows` and `ncols` keyword arguments allow you to specify how many rows and columns you want to read from the sheet. The following example uses all four options to skip the first two rows and first three columns, to then read a table with four rows and five columns:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.xlsx", "Sheet1", skipstartrows=2, skipstartcols=3, nrows=4, ncols=5) |> DataFrame
 ```
 
 Instead of passing a sheet name to `load`, you can also pass a full Excel range specification. Excel range specifications have the form `Sheetname!CellRef1:CellRef2`. `CellRef1` and `CellRef2` designate the top left and bottom right cell of the rectangle that you want to load. For example, the range specification `Sheet1!B2:D5` denotes the data on `Sheet1` that lies in the rectangle that has cell `B2` as the top left corner and `D5` as the bottom right corner. To load that data with julia you can use this code:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.xlsx", "Sheet1!B2:D5") |> DataFrame
 ```
 Without any other arguments, `load` will assume that the first row in this rectangle contains the columns names of a table. If that is not the case for your data, you can specify the keyword argument `header=false`, in which case `load` will treat the first row in the rectangle specified by the range as data. The columns will get automatically generated names. You can also pass custom column names with the `colnames` keyword argument, which accepts an array of `String`s. If you pass column names via the `colnames` argument with the option `header=true` (the default setting), `load` will ignore the first row in the range specified rectangle and instead use the names you passed in the `colnames` argument. The following code reads data from `Sheet1` in range `A2:C5`, treats the first row as data and assigns custom column names:
 ```julia
-using Queryverse
+using Dataverse
 
 df = load("mydata.xlsx", "Sheet1!B2:C5", header=false, colnames=["Name", "Age", "Children"]) |> DataFrame
 ```
@@ -372,7 +372,7 @@ df = load("mydata.xlsx", "Sheet1!B2:C5", header=false, colnames=["Name", "Age", 
 
 You can load files that were saved in one of the formats of these statistical software packages that have the extension `*.dta`, `*.por`, `*.save` or `*.sas7bdat`. If you call the `load` function with a filename with any of these extensions, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [StatFiles.jl](https://github.com/davidanthoff/StatFiles.jl) package to read those files. The following code example demonstrates how you can read a file in each of these formats:
 ```julia
-using Queryverse
+using Dataverse
 
 df1 = load("mydata.dta") |> DataFrame
 
@@ -386,7 +386,7 @@ There are no further options you can specify when loading one of these files.
 
 ## Alternative Packages
 
-This section described how you can use packages from the Queryverse to
+This section described how you can use packages from the Dataverse to
 load and save data. While those are useful, they are not the only julia
 packages that you can use for tabular file IO, in fact there are many other
 excellent packages for those tasks. I encourage you to explore those
@@ -404,5 +404,5 @@ at:
 - [Bedgraph.jl](https://github.com/CiaranOMara/Bedgraph.jl) (*).
 - [DBFTables.jl](https://github.com/JuliaData/DBFTables.jl).
 - [RData.jl](https://github.com/JuliaStats/RData.jl).
-Note that some of these packages actually power the Queryverse file IO
+Note that some of these packages actually power the Dataverse file IO
 packages, I have denoted those packages with (*).
