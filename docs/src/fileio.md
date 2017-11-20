@@ -334,8 +334,23 @@ No other options can be specified when saving a Feather file.
 
 ## Stata, SPSS, and SAS Files
 
-[TODO]
+[TODO add general description of stats files]
 
+### Loading Stata, SPSS, and SAS Files
+
+You can load files that were saved in one of the formats of these statistical software packages that have the extension `*.dta`, `*.por`, `*.save` or `*.sas7bdat`. If you call the `load` function with a filename with any of these extensions, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [StatFiles.jl](https://github.com/davidanthoff/StatFiles.jl) package to read those files. The following code example demonstrates how you can read a file in each of these formats:
+```julia
+using Queryverse
+
+df1 = load("mydata.dta") |> DataFrame
+
+df2 = load("mydata.por") |> DataFrame
+
+df3 = load("mydata.sav") |> DataFrame
+
+df4 = load("mydata.sas7bdat") |> DataFrame
+```
+There are no further options you can specify when loading one of these files.
 
 ## Alternative Packages
 
