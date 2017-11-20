@@ -248,9 +248,34 @@ Note how we have to escape the `\` character itself in the julia string: `\` is 
 
 ### Saving CSV Files
 
+[TODO]
+
 ## Feather Files
 
-[TODO]
+[TODO add general description of Feather files]
+
+### Loading Feather Files
+
+If you pass a filename with the extension `*.feather` to the `load` function, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [FeatherFiles.jl](https://github.com/davidanthoff/FeatherFiles.jl) package to load that file. The following example demonstrates how you can load a Feather file:
+```julia
+using Dataverse
+
+# Load a local file
+df = load("mydata.feather") |> DataFrame
+```
+There are no options you can specify when loading a Feather file.
+
+### Saving Feather Files
+
+You can save a table as a Feather file by calling the `save` function with a filename that has the `*.feather` extension. In that case [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [FeatherFiles.jl](https://github.com/davidanthoff/FeatherFiles.jl) package to save that file. This example shows you how to save a table as a Feather file:
+```julia
+using Dataverse
+
+df = DataFrame(name=["John", "Sally"], age=[23.,25.])
+
+df |> save("mydata.feather")
+```
+No other options can be specified when saving a Feather file.
 
 ## Excel Files
 
