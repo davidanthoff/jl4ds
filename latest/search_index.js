@@ -117,7 +117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Delimter character",
     "category": "section",
-    "text": "By default, CSV files use a comma (,) to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon (;) to separate columns, like the following example:Name;Age\nJohn;34\nSally;52You can tell load to use a different character as the delimiter between columns by passing a Char value as the second argument to the load function:using Dataverse\n\ndf = load(\"mycsvfile_with_semicolon.csv\", ';') |> DataFrameYou can tell load to use any character as the column delimiter signal. Another common case besides the semicolon is a tab character (written as '\\t' in julia)."
+    "text": "By default, CSV files use a comma , to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon ; to separate columns, like the following example:Name;Age\nJohn;34\nSally;52You can tell load to use a different character as the delimiter between columns by passing a Char value as the second argument to the load function:using Dataverse\n\ndf = load(\"mycsvfile_with_semicolon.csv\", ';') |> DataFrameYou can tell load to use any character as the column delimiter signal. Another common case besides the semicolon is a tab character (written as '\\t' in julia)."
 },
 
 {
