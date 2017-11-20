@@ -330,7 +330,39 @@ No other options can be specified when saving a Feather file.
 
 ## Excel Files
 
-[TODO]
+[TODO add general description of Excel files]
+
+### Loading Excel Files
+
+You can load both `*.xls` and `*.xlsx` files with `load`. If you pass a filename with one of those extensions to `load`, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [ExcelFiles.jl](https://github.com/davidanthoff/ExcelFiles.jl) package to load those files.
+
+To load an Excel file, you always need to specify either a sheet name or range in addition to the filename itself.
+
+The following example loads the sheet `Sheet1` from an Excel file:
+```julia
+using Queryverse
+
+df = load("mydata.xlsx", "Sheet1") |> DataFrame
+```
+When you pass a sheet name to `load` without any other option, it will automatically skip any initial empty rows or columns in the Excel file, and then read the remaining content on the sheet. You can also manually control what data should be read from the sheet by using a number of keyword arguments. The `skipstartrows` argument takes an `Int`, when specified the `load` function will ignore the first `skipstartrows` rows in the file. Note that in this case `load` will no longer attempt to automatically figure out on which row your data is starting in the sheet. The `skipstartcols` option works the same way, but for columns. The `nrows` and `ncols` keyword arguments allow you to specify how many rows and columns you want to read from the sheet. The following example uses all four options to skip the first two rows and first three columns, to then read a table with four rows and five columns:
+```julia
+using Queryverse
+
+df = load("mydata.xlsx", "Sheet1", skipstartrows=2, skipstartcols=3, nrows=4, ncols=5) |> DataFrame
+```
+
+Instead of passing a sheet name to `load`, you can also pass a full Excel range specification. Excel range specifications have the form `Sheetname!CellRef1:CellRef2`. `CellRef1` and `CellRef2` designate the top left and bottom right cell of the rectangle that you want to load. For example, the range specification `Sheet1!B2:D5` denotes the data on `Sheet1` that lies in the rectangle that has cell `B2` as the top left corner and `D5` as the bottom right corner. To load that data with julia you can use this code:
+```julia
+using Queryverse
+
+df = load("mydata.xlsx", "Sheet1!B2:D5") |> DataFrame
+```
+Without any other arguments, `load` will assume that the first row in this rectangle contains the columns names of a table. If that is not the case for your data, you can specify the keyword argument `header=false`, in which case `load` will treat the first row in the rectangle specified by the range as data. The columns will get automatically generated names. You can also pass custom column names with the `colnames` keyword argument, which accepts an array of `String`s. If you pass column names via the `colnames` argument with the option `header=true` (the default setting), `load` will ignore the first row in the range specified rectangle and instead use the names you passed in the `colnames` argument. The following code reads data from `Sheet1` in range `A2:C5`, treats the first row as data and assigns custom column names:
+```julia
+using Queryverse
+
+df = load("mydata.xlsx", "Sheet1!B2:C5", header=false, colnames=["Name", "Age", "Children"]) |> DataFrame
+```
 
 ## Stata, SPSS, and SAS Files
 
