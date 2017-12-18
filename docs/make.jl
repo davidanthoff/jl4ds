@@ -6,7 +6,8 @@ makedocs(
     pages = [
         "index.md",
         "setup.md",
-        "fileio.md"
+        "fileio.md",
+        "iterabletables.md"
     ]
 )
 
