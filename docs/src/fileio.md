@@ -384,6 +384,21 @@ df4 = load("mydata.sas7bdat") |> DataFrame
 ```
 There are no further options you can specify when loading one of these files.
 
+## Parquet Files
+
+[TODO add general description of Parquet files]
+
+### Loading Parquet Files
+
+If you pass a filename with the extension `*.parquet` to the `load` function, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [ParquetFiles.jl](https://github.com/davidanthoff/ParquetFiles.jl) package to load that file. The following example demonstrates how you can load a Feather file:
+```julia
+using Dataverse
+
+# Load a local file
+df = load("mydata.parquet") |> DataFrame
+```
+There are no options you can specify when loading a Parquet file.
+
 ## Alternative Packages
 
 This section described how you can use packages from the Dataverse to
