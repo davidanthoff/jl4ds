@@ -257,6 +257,22 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "fileio.html#fst-Files-1",
+    "page": "Tabular File IO",
+    "title": "fst Files",
+    "category": "section",
+    "text": "[TODO add general description of fst files]"
+},
+
+{
+    "location": "fileio.html#Loading-fst-Files-1",
+    "page": "Tabular File IO",
+    "title": "Loading fst Files",
+    "category": "section",
+    "text": "If you pass a filename with the extension *.fst to the load function, FileIO.jl will use the FstFiles.jl package to load that file. The following example demonstrates how you can load a fst file:using Dataverse\n\n# Load a local file\ndf = load(\"mydata.fst\") |> DataFrameThere are no options you can specify when loading a fst file."
+},
+
+{
     "location": "fileio.html#Alternative-Packages-1",
     "page": "Tabular File IO",
     "title": "Alternative Packages",
