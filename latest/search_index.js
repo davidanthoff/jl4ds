@@ -301,7 +301,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Advanced - TableTraits.jl",
     "title": "Overivew",
     "category": "section",
-    "text": "The TableTraits.jl defines three interfaces that a table can implement: the iterable tables interface, the columns-copy interface and the columns-view interface. A function that accepts a table as an argument can then use these interfaces to access the data in the table. By accessing the data in the table via one of these three interfaces, the function can interact with many different types of tables, without taking a dependency on any specific table implementation.While the three table interfaces are entirely independent from each other, one of the three is more equal than the others: any table that wants to participate in the Queryverse ecosystem must implement the iterable tables interface, and every function that accepts a table as an argument must be able to access the data from that table via the iterable tables interface. The iterable tables interface is thus the most fundamental and basic of the three interfaces that any implementation must support. The two other interfaces (columns-copy and columns-view) are more specialized, but can provide much better performance in certain situations. Tables and table consumers may support those interfaces in addition to the iterable tables interface."
+    "text": "The TableTraits.jl defines three interfaces that a table can implement: the iterable tables interface, the columns-copy interface and the columns-view interface. A function that accepts a table as an argument can then use these interfaces to access the data in the table. By accessing the data in the table via one of these three interfaces, the function can interact with many different types of tables, without taking a dependency on any specific table implementation.While the three table interfaces are entirely independent from each other, one of the three is more equal than the others: any table that wants to participate in the Queryverse ecosystem must implement the iterable tables interface, and every function that accepts a table as an argument must be able to access the data from that table via the iterable tables interface. The iterable tables interface is thus the most fundamental and basic of the three interfaces that any implementation must support. The two other interfaces (columns-copy and columns-view) are more specialized, but can provide much better performance in certain situations. Tables and table consumers may support those interfaces in addition to the iterable tables interface.The TableTraitsUtils.jl package provides a number of helper functions that make it easier to implement and consume the interfaces described in this package. Most packages that want to integrate with the ecosystem described in this chapter should first check whether any of the helper functions in that package can be used to implement these interfaces, before attempting to folow the guidelines in this chapter to implement these interfaces manually."
 },
 
 {
@@ -390,6 +390,46 @@ var documenterSearchIndex = {"docs": [
     "title": "Creating a custom iteration type",
     "category": "section",
     "text": "For types that don\'t have enough information encoded in their type to implement a type stable version of the julia iteration interface, the best strategy is to create a custom iteration type that implements the julia iteration interface and has enough type information.For example, for the MyTable type one might create a new iterator type called MyTableIterator{T} that holds the type of the NamedTuple that this iterator will return in T.To expose this new iterator type to consumers, one needs to add a method to the IteratorInterfaceExtensions.getiterator function. This function takes an instance of the type one wants to expose as an iterable table, and returns a new type that should actually be used for the iteration itself. For example, function IteratorInterfaceExtensions.getiterator(table::MyTable) would return an instance of MyTableIterator{T}.In addition to adding a method to IteratorInterfaceExtensions.getiterator, one must also add methods to the IteratorInterfaceExtensions.isiterable and TableTraits.isiterabletable functions for the type one wants to turn into an iterable table, in both cases those methods should return true.The final step is to implement the full julia iteration interface for the custom iterator type that one returned from IteratorInterfaceExtensions.getiterator. All the same requirements that were discussed in the previous section apply here as well.An example of this strategy is the DataTable integration."
+},
+
+{
+    "location": "tabletraits.html#The-columns-copy-interface-[experimental]-1",
+    "page": "Advanced - TableTraits.jl",
+    "title": "The columns-copy interface [experimental]",
+    "category": "section",
+    "text": "Note that this interface is still experimental and might change in the future."
+},
+
+{
+    "location": "tabletraits.html#Specification-2",
+    "page": "Advanced - TableTraits.jl",
+    "title": "Specification",
+    "category": "section",
+    "text": "The columns-copy interface consists of only two functions: TableTraits.supports_get_columns_copy (to check whether a table supports this interface) and TableTraits.get_columns_copy (to get a copy of all the columns in the table).This interface allows a consumer of a table to obtain a copy of the data in a table. The copy will consist of one vector for each column of the source table. The key feature of this interface is that the consumer of this interface will \"own\" the vectors that are obtained via this interface. The consumer can modify, delete or do anything else with the vectors returned from this interface. This implies that a source that returns columns via this interface should not hold onto the actual vectors that it returns via this interface.The TableTraits.supports_get_columns_copy function accepts one argument that has to be a table. It will return true or false, depending on whether the table supports the columns-copy interface or not.The TableTraits.get_columns_copy function also accepts one argument that is a table. It returns a NamedTuple with one field for each column in the source table. Each field should hold a vector with the actual values for that column.If the source table supports a notion of missing data in a column, it should return a DataValueVector from the DataValues.jl package for such columns."
+},
+
+{
+    "location": "tabletraits.html#The-columns-view-interface-1",
+    "page": "Advanced - TableTraits.jl",
+    "title": "The columns-view interface",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "tabletraits.html#Specification-3",
+    "page": "Advanced - TableTraits.jl",
+    "title": "Specification",
+    "category": "section",
+    "text": "The columns-view interface consists of only two functions: TableTraits.supports_get_columns_view (to check whether a table supports this interface) and TableTraits.get_columns_view (to get a view into the source table).This interface allows a consumer of a table to get access to the columns in a table via a standardized interface. In particular, a consumer can obtain a NamedTuple of columns from a source table that give access to the data in the source table. The key feature of this interface is that the consumer is only allowed to read data from the arrays returned by this interface. The consumer must not attempt to modify the content of the source table via the arrays that were returned from this interface. A source should in general not make copies of the data if it implements this interface. In essence this interface gives a read-only view into a table that a consumer can use to access any cell in a table.The TableTraits.supports_get_columns_view function accepts one argument that has to be a table. It will return true or false, depending on whether the table supports the columns-view interface or not.The TableTraits.get_columns_view function also accepts one argument that is a table. It returns a NamedTuple with one field for each column in the source table. Each field should hold a vector with the actual values for that column.If the source table supports a notion of missing data in a column, the eltype of the vector for that column must be of type DataValue."
+},
+
+{
+    "location": "tabletraits.html#The-TableTraitsUtils.jl-package-1",
+    "page": "Advanced - TableTraits.jl",
+    "title": "The TableTraitsUtils.jl package",
+    "category": "section",
+    "text": "[TODO]"
 },
 
 ]}
