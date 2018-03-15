@@ -7,7 +7,7 @@ makedocs(
         "index.md",
         "setup.md",
         "fileio.md",
-        "iterabletables.md"
+        "tabletraits.md"
     ]
 )
 
