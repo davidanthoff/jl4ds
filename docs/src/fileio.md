@@ -420,9 +420,12 @@ at:
 - [uCSV.jl](https://github.com/cjprybol/uCSV.jl).
 - [TextParse.jl](https://github.com/JuliaComputing/TextParse.jl) (*).
 - [ReadWriteDlm2.jl](https://github.com/strickek/ReadWriteDlm2.jl).
-- [Feather.jl](https://github.com/JuliaData/Feather.jl) (*).
+- [Feather.jl](https://github.com/JuliaData/Feather.jl).
+- [FeatherLib.jl](https://github.com/davidanthoff/FeatherLib.jl) (*).
 - [ReadStat.jl](https://github.com/WizardMac/ReadStat.jl) (*).
+- [SASLib.jl](https://github.com/tk3369/SASLib.jl).
 - [ExcelReaders.jl](https://github.com/davidanthoff/ExcelReaders.jl) (*).
+- [XLSX.jl](https://github.com/felipenoris/XLSX.jl).
 - [Taro.jl](https://github.com/aviks/Taro.jl).
 - [Bedgraph.jl](https://github.com/CiaranOMara/Bedgraph.jl) (*).
 - [DBFTables.jl](https://github.com/JuliaData/DBFTables.jl).
