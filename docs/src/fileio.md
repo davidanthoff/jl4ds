@@ -407,6 +407,21 @@ df = load("mydata.parquet") |> DataFrame
 ```
 There are no options you can specify when loading a Parquet file.
 
+## fst Files
+
+[TODO add general description of fst files]
+
+### Loading fst Files
+
+If you pass a filename with the extension `*.fst` to the `load` function, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [FstFiles.jl](https://github.com/davidanthoff/FstFiles.jl) package to load that file. The following example demonstrates how you can load a fst file:
+```julia
+using Queryverse
+
+# Load a local file
+df = load("mydata.fst") |> DataFrame
+```
+There are no options you can specify when loading a fst file.
+
 ## Alternative Packages
 
 This section described how you can use packages from the Queryverse to
