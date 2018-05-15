@@ -1,13 +1,5 @@
 # Tabular File IO
 
-
-!!! note
-
-    This chapter is preliminary, and some of the things described in the
-    text have not yet been implemented, i.e. some of the things described
-    here will not currently work.
-
-
 This chapter will teach you how to read and write data from files. We will
 limit the discussion to tabular data, i.e. data that has the structure of
 a table.
