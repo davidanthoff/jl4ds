@@ -144,6 +144,19 @@ df = load("mycsvfile_with_semicolon.csv", ';') |> DataFrame
 ```
 You can tell `load` to use any character as the column delimiter signal. Another common case besides the semicolon is a tab character (written as `'\t'` in julia).
 
+A special case arises when one or multiple spaces are used to separate columns. If you have a file like that, you can use the `spacedelim=true` argument with the `load` function. For example, say you have a file like this:
+```
+Name   Age
+John   34
+Sally  52
+```
+Note how columns are separated with multiple spaces in this file. You can load this file with the following code:
+```julia
+using Queryverse
+
+df = load("mycsvfile_with_whitespaces.csv", spacedelim=true) |> DataFrame
+```
+
 #### Column Names
 
 In most CSV files the first line contains the names of the columns, and subsequent lines the actual data itself. If you call `load` with no special arguments, it will assume that the first line in the CSV file holds column names. An example of such a CSV file might look like this:
