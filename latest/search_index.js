@@ -257,27 +257,11 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#fst-Files-1",
-    "page": "Tabular File IO",
-    "title": "fst Files",
-    "category": "section",
-    "text": "[TODO add general description of fst files]"
-},
-
-{
-    "location": "fileio.html#Loading-fst-Files-1",
-    "page": "Tabular File IO",
-    "title": "Loading fst Files",
-    "category": "section",
-    "text": "If you pass a filename with the extension *.fst to the load function, FileIO.jl will use the FstFiles.jl package to load that file. The following example demonstrates how you can load a fst file:using Queryverse\n\n# Load a local file\ndf = load(\"mydata.fst\") |> DataFrameThere are no options you can specify when loading a fst file."
-},
-
-{
     "location": "fileio.html#Alternative-Packages-1",
     "page": "Tabular File IO",
     "title": "Alternative Packages",
     "category": "section",
-    "text": "This section described how you can use packages from the Queryverse to load and save data. While those are useful, they are not the only julia packages that you can use for tabular file IO, in fact there are many other excellent packages for those tasks. I encourage you to explore those packages and use them whenever they are a good fit for your work. Here is an (incomplete) list of other packages you might want to take a look at:CSV.jl.\nuCSV.jl.\nTextParse.jl (*).\nReadWriteDlm2.jl.\nFeather.jl (*).\nReadStat.jl (*).\nExcelReaders.jl (*).\nTaro.jl.\nBedgraph.jl (*).\nDBFTables.jl.\nRData.jl.Note that some of these packages actually power the Queryverse file IO packages, I have denoted those packages with (*)."
+    "text": "This section described how you can use packages from the Queryverse to load and save data. While those are useful, they are not the only julia packages that you can use for tabular file IO, in fact there are many other excellent packages for those tasks. I encourage you to explore those packages and use them whenever they are a good fit for your work. Here is an (incomplete) list of other packages you might want to take a look at:CSV.jl.\nuCSV.jl.\nTextParse.jl (*).\nReadWriteDlm2.jl.\nFeather.jl.\nFeatherLib.jl (*).\nReadStat.jl (*).\nSASLib.jl.\nExcelReaders.jl (*).\nXLSX.jl.\nTaro.jl.\nBedgraph.jl (*).\nDBFTables.jl.\nRData.jl.Note that some of these packages actually power the Queryverse file IO packages, I have denoted those packages with (*)."
 },
 
 {
