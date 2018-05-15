@@ -61,7 +61,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Tabular File IO",
     "category": "section",
-    "text": "note: Note\nThis chapter is preliminary, and some of the things described in the text have not yet been implemented, i.e. some of the things described here will not currently work.This chapter will teach you how to read and write data from files. We will limit the discussion to tabular data, i.e. data that has the structure of a table."
+    "text": "This chapter will teach you how to read and write data from files. We will limit the discussion to tabular data, i.e. data that has the structure of a table."
 },
 
 {
@@ -117,7 +117,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Delimter character",
     "category": "section",
-    "text": "By default, CSV files use a comma , to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon ; to separate columns, like the following example:Name;Age\nJohn;34\nSally;52You can tell load to use a different character as the delimiter between columns by passing a Char value as the second argument to the load function:using Queryverse\n\ndf = load(\"mycsvfile_with_semicolon.csv\", \';\') |> DataFrameYou can tell load to use any character as the column delimiter signal. Another common case besides the semicolon is a tab character (written as \'\\t\' in julia)."
+    "text": "By default, CSV files use a comma , to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon ; to separate columns, like the following example:Name;Age\nJohn;34\nSally;52You can tell load to use a different character as the delimiter between columns by passing a Char value as the second argument to the load function:using Queryverse\n\ndf = load(\"mycsvfile_with_semicolon.csv\", \';\') |> DataFrameYou can tell load to use any character as the column delimiter signal. Another common case besides the semicolon is a tab character (written as \'\\t\' in julia).A special case arises when one or multiple spaces are used to separate columns. If you have a file like that, you can use the spacedelim=true argument with the load function. For example, say you have a file like this:Name   Age\nJohn   34\nSally  52Note how columns are separated with multiple spaces in this file. You can load this file with the following code:using Queryverse\n\ndf = load(\"mycsvfile_with_whitespaces.csv\", spacedelim=true) |> DataFrame"
 },
 
 {
