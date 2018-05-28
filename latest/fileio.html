@@ -19,7 +19,7 @@ df = DataFrame(Name=[&quot;Jim&quot;, &quot;Sally&quot;, &quot;John&quot;], Age=
 
 df |&gt; save(&quot;mydata.csv&quot;)</code></pre><p>The <code>save</code> function works with any tabular data structure, not just <code>DataFrame</code>s and it supports many different file formats. The following code shows how you can load data from a CSV file, filter it and then write it out directly as a Feather file, without ever materializing it into a <code>DataFrame</code>:</p><pre><code class="language-julia">using Queryverse
 
-load(&quot;mydata.csv&quot;) |&gt; @filter(_.age&gt;23) |&gt; save(&quot;mydata.feather&quot;)</code></pre><p>For some file formats you can pass additional configuration arguments to the <code>save</code> function that control in detail how the file is written to disc. The following example writes a table to disc as a CSV file, but uses a non-standard delimeter character and also does not write a header to the file:</p><pre><code class="language-julia">using Queryverse
+load(&quot;mydata.csv&quot;) |&gt; @filter(_.age&gt;23) |&gt; save(&quot;mydata.feather&quot;)</code></pre><p>For some file formats you can pass additional configuration arguments to the <code>save</code> function that control in detail how the file is written to disc. The following example writes a table to disc as a CSV file, but uses a non-standard delimiter character and also does not write a header to the file:</p><pre><code class="language-julia">using Queryverse
 
 df = DataFrame(Name=[&quot;Jim&quot;, &quot;Sally&quot;, &quot;John&quot;], Age=[23., 56., 34.])
 
@@ -30,7 +30,7 @@ df = load(&quot;mycsv.csv&quot;) |&gt; DataFrame
 
 # Load a remote file
 url = &quot;https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/data.csv&quot;
-df = load(url) |&gt; DataFrame</code></pre><h4><a class="nav-anchor" id="Delimter-character-1" href="#Delimter-character-1">Delimter character</a></h4><p>By default, CSV files use a comma <code>,</code> to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon <code>;</code> to separate columns, like the following example:</p><pre><code class="language-none">Name;Age
+df = load(url) |&gt; DataFrame</code></pre><h4><a class="nav-anchor" id="Delimiter-character-1" href="#Delimiter-character-1">Delimiter character</a></h4><p>By default, CSV files use a comma <code>,</code> to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon <code>;</code> to separate columns, like the following example:</p><pre><code class="language-none">Name;Age
 John;34
 Sally;52</code></pre><p>You can tell <code>load</code> to use a different character as the delimiter between columns by passing a <code>Char</code> value as the second argument to the <code>load</code> function:</p><pre><code class="language-julia">using Queryverse
 
@@ -67,7 +67,7 @@ df = load(&quot;mydata.csv&quot;, escapechar=&#39;\\&#39;)</code></pre><p>Note h
 
 df = DataFrame(name=[&quot;John&quot;, &quot;Sally&quot;], age=[23.,25.])
 
-df |&gt; save(&quot;mydata.csv&quot;)</code></pre><p>The <code>save</code> function accepts a number of arguments when saving a CSV file that control the precise format of the CSV file that is written.</p><h4><a class="nav-anchor" id="Delimter-character-2" href="#Delimter-character-2">Delimter character</a></h4><p>You can control which character should separate columns in the result file by passing the keyword argument <code>delim</code> to the <code>save</code> function. The following code uses a semicolon <code>;</code> as the column separator character:</p><pre><code class="language-julia">using Queryverse
+df |&gt; save(&quot;mydata.csv&quot;)</code></pre><p>The <code>save</code> function accepts a number of arguments when saving a CSV file that control the precise format of the CSV file that is written.</p><h4><a class="nav-anchor" id="Delimiter-character-2" href="#Delimiter-character-2">Delimiter character</a></h4><p>You can control which character should separate columns in the result file by passing the keyword argument <code>delim</code> to the <code>save</code> function. The following code uses a semicolon <code>;</code> as the column separator character:</p><pre><code class="language-julia">using Queryverse
 
 df = DataFrame(name=[&quot;John&quot;, &quot;Sally&quot;], age=[23.,25.])
 
