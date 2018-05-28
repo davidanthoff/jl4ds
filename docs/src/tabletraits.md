@@ -2,13 +2,13 @@
 
 This chapter describes the internals of various table interfaces that are defined in the [TableTraits.jl](https://github.com/davidanthoff/TableTraits.jl) package. Most data science users do not need to read this chapter, it mostly targets developers that want to integrate their own packages with the ecosystem of packages described in this book.
 
-## Overivew
+## Overview
 
 The [TableTraits.jl](https://github.com/davidanthoff/TableTraits.jl) defines three interfaces that a table can implement: the iterable tables interface, the columns-copy interface and the columns-view interface. A function that accepts a table as an argument can then use these interfaces to access the data in the table. By accessing the data in the table via one of these three interfaces, the function can interact with many different types of tables, without taking a dependency on any specific table implementation.
 
 While the three table interfaces are entirely independent from each other, one of the three is more equal than the others: any table that wants to participate in the Queryverse ecosystem *must* implement the iterable tables interface, and every function that accepts a table as an argument *must* be able to access the data from that table via the iterable tables interface. The iterable tables interface is thus the most fundamental and basic of the three interfaces that any implementation must support. The two other interfaces (columns-copy and columns-view) are more specialized, but can provide much better performance in certain situations. Tables and table consumers *may* support those interfaces in addition to the iterable tables interface.
 
-The [TableTraitsUtils.jl](https://github.com/davidanthoff/TableTraitsUtils.jl) package provides a number of helper functions that make it easier to implement and consume the interfaces described in this package. Most packages that want to integrate with the ecosystem described in this chapter should first check whether any of the helper functions in that package can be used to implement these interfaces, before attempting to folow the guidelines in this chapter to implement these interfaces manually.
+The [TableTraitsUtils.jl](https://github.com/davidanthoff/TableTraitsUtils.jl) package provides a number of helper functions that make it easier to implement and consume the interfaces described in this package. Most packages that want to integrate with the ecosystem described in this chapter should first check whether any of the helper functions in that package can be used to implement these interfaces, before attempting to follow the guidelines in this chapter to implement these interfaces manually.
 
 ## The iterable tables interface
 
@@ -94,11 +94,11 @@ There are generally two strategies for turning some custom type into an iterable
 
 ##### Directly implementing the julia base iteration trait
 
-This strategy only works if the type that one wants to expose as an iterable table has enough information about the strcuture of the table that one can implement a type stable version of `start`, `next` and `done`. Typically that requires that one can deduce the names and types of the columns of the table purely from the type (and type parameters). For some types that works, but for other types (like `DataFrame`) this strategy won't work.
+This strategy only works if the type that one wants to expose as an iterable table has enough information about the structure of the table that one can implement a type stable version of `start`, `next` and `done`. Typically that requires that one can deduce the names and types of the columns of the table purely from the type (and type parameters). For some types that works, but for other types (like `DataFrame`) this strategy won't work.
 
 If the type one wants to expose as an iterable table allows this strategy, the implementation is fairly straightforward: one simple needs to implement the standard julia base iterator interface, and during iteration one should return `NamedTuple`s for each element. The fields in the `NamedTuple` correspond to the columns of the table, i.e. the names of the fields are the column names, and the types of the field are the column types. If the source supports some notion of missing values, it should return `NamedTuples` that have fields of type `DataValue{T}`, where `T` is the data type of the column.
 
-It is important to not only implement `start`, `next` and `end` from the julia iteration protocoll. Iterable tables also always require that `eltype` is implemented. Finally, one should either implement `length`, if the source supports returning the number of rows without expensive computations, or one should add a method `iteratorsize` that returns `SizeUnknown()` for the custom type.
+It is important to not only implement `start`, `next` and `end` from the julia iteration protocol. Iterable tables also always require that `eltype` is implemented. Finally, one should either implement `length`, if the source supports returning the number of rows without expensive computations, or one should add a method `iteratorsize` that returns `SizeUnknown()` for the custom type.
 
 The implementation of a type stable `next` method typically requires the use of generated functions.
 

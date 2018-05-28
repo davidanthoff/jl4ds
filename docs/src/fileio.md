@@ -96,7 +96,7 @@ load("mydata.csv") |> @filter(_.age>23) |> save("mydata.feather")
 For some file formats you can pass additional configuration arguments to
 the `save` function that control in detail how the file is written to
 disc. The following example writes a table to disc as a CSV file, but
-uses a non-standard delimeter character and also does not write a
+uses a non-standard delimiter character and also does not write a
 header to the file:
 ```julia
 using Queryverse
@@ -128,7 +128,7 @@ url = "https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/da
 df = load(url) |> DataFrame
 ```
 
-#### Delimter character
+#### Delimiter character
 
 By default, CSV files use a comma `,` to separate content in different columns. While that is the most common case, CSV files also sometimes use a different character to separate content in different columns. For example, you might want to read a file that uses a semicolon `;` to separate columns, like the following example:
 ```
@@ -271,7 +271,7 @@ df |> save("mydata.csv")
 ```
 The `save` function accepts a number of arguments when saving a CSV file that control the precise format of the CSV file that is written.
 
-#### Delimter character
+#### Delimiter character
 
 You can control which character should separate columns in the result file by passing the keyword argument `delim` to the `save` function. The following code uses a semicolon `;` as the column separator character:
 ```julia
