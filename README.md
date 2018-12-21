@@ -5,5 +5,4 @@
 
 # Julia for Data Science
 
-This might eventually turn into a book. The current version can be read
-at [Julia for Data Science](http://www.david-anthoff.com/jl4ds/stable/).
+This might eventually turn into a book. The current version can be read at [Julia for Data Science](http://www.david-anthoff.com/jl4ds/stable/).
