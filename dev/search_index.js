@@ -1,7 +1,7 @@
 var documenterSearchIndex = {"docs": [
 
 {
-    "location": "index.html#",
+    "location": "#",
     "page": "Julia for Data Science",
     "title": "Julia for Data Science",
     "category": "page",
@@ -9,7 +9,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "index.html#Julia-for-Data-Science-1",
+    "location": "#Julia-for-Data-Science-1",
     "page": "Julia for Data Science",
     "title": "Julia for Data Science",
     "category": "section",
@@ -17,7 +17,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "setup.html#",
+    "location": "setup/#",
     "page": "Setup",
     "title": "Setup",
     "category": "page",
@@ -25,7 +25,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "setup.html#Setup-1",
+    "location": "setup/#Setup-1",
     "page": "Setup",
     "title": "Setup",
     "category": "section",
@@ -33,7 +33,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "setup.html#Installing-julia-1",
+    "location": "setup/#Installing-julia-1",
     "page": "Setup",
     "title": "Installing julia",
     "category": "section",
@@ -41,7 +41,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "setup.html#Installing-the-Queryverse.jl-package-1",
+    "location": "setup/#Installing-the-Queryverse.jl-package-1",
     "page": "Setup",
     "title": "Installing the Queryverse.jl package",
     "category": "section",
@@ -49,7 +49,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#",
+    "location": "fileio/#",
     "page": "Tabular File IO",
     "title": "Tabular File IO",
     "category": "page",
@@ -57,7 +57,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Tabular-File-IO-1",
+    "location": "fileio/#Tabular-File-IO-1",
     "page": "Tabular File IO",
     "title": "Tabular File IO",
     "category": "section",
@@ -65,7 +65,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Getting-Started-1",
+    "location": "fileio/#Getting-Started-1",
     "page": "Tabular File IO",
     "title": "Getting Started",
     "category": "section",
@@ -73,7 +73,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Loading-Data-1",
+    "location": "fileio/#Loading-Data-1",
     "page": "Tabular File IO",
     "title": "Loading Data",
     "category": "section",
@@ -81,7 +81,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Saving-Data-1",
+    "location": "fileio/#Saving-Data-1",
     "page": "Tabular File IO",
     "title": "Saving Data",
     "category": "section",
@@ -89,7 +89,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#The-load-and-save-function-1",
+    "location": "fileio/#The-load-and-save-function-1",
     "page": "Tabular File IO",
     "title": "The load and save function",
     "category": "section",
@@ -97,7 +97,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#CSV-Files-1",
+    "location": "fileio/#CSV-Files-1",
     "page": "Tabular File IO",
     "title": "CSV Files",
     "category": "section",
@@ -105,7 +105,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Loading-CSV-Files-1",
+    "location": "fileio/#Loading-CSV-Files-1",
     "page": "Tabular File IO",
     "title": "Loading CSV Files",
     "category": "section",
@@ -113,7 +113,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Delimiter-character-1",
+    "location": "fileio/#Delimiter-character-1",
     "page": "Tabular File IO",
     "title": "Delimiter character",
     "category": "section",
@@ -121,7 +121,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Column-Names-1",
+    "location": "fileio/#Column-Names-1",
     "page": "Tabular File IO",
     "title": "Column Names",
     "category": "section",
@@ -129,7 +129,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Rows-to-Read-1",
+    "location": "fileio/#Rows-to-Read-1",
     "page": "Tabular File IO",
     "title": "Rows to Read",
     "category": "section",
@@ -137,7 +137,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Column-Types-1",
+    "location": "fileio/#Column-Types-1",
     "page": "Tabular File IO",
     "title": "Column Types",
     "category": "section",
@@ -145,7 +145,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Quote-and-Escape-Character-1",
+    "location": "fileio/#Quote-and-Escape-Character-1",
     "page": "Tabular File IO",
     "title": "Quote and Escape Character",
     "category": "section",
@@ -153,7 +153,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Saving-CSV-Files-1",
+    "location": "fileio/#Saving-CSV-Files-1",
     "page": "Tabular File IO",
     "title": "Saving CSV Files",
     "category": "section",
@@ -161,7 +161,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Delimiter-character-2",
+    "location": "fileio/#Delimiter-character-2",
     "page": "Tabular File IO",
     "title": "Delimiter character",
     "category": "section",
@@ -169,7 +169,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Header-1",
+    "location": "fileio/#Header-1",
     "page": "Tabular File IO",
     "title": "Header",
     "category": "section",
@@ -177,7 +177,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Quote-and-Escape-Character-2",
+    "location": "fileio/#Quote-and-Escape-Character-2",
     "page": "Tabular File IO",
     "title": "Quote and Escape Character",
     "category": "section",
@@ -185,7 +185,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Feather-Files-1",
+    "location": "fileio/#Feather-Files-1",
     "page": "Tabular File IO",
     "title": "Feather Files",
     "category": "section",
@@ -193,7 +193,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Loading-Feather-Files-1",
+    "location": "fileio/#Loading-Feather-Files-1",
     "page": "Tabular File IO",
     "title": "Loading Feather Files",
     "category": "section",
@@ -201,7 +201,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Saving-Feather-Files-1",
+    "location": "fileio/#Saving-Feather-Files-1",
     "page": "Tabular File IO",
     "title": "Saving Feather Files",
     "category": "section",
@@ -209,7 +209,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Excel-Files-1",
+    "location": "fileio/#Excel-Files-1",
     "page": "Tabular File IO",
     "title": "Excel Files",
     "category": "section",
@@ -217,7 +217,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Loading-Excel-Files-1",
+    "location": "fileio/#Loading-Excel-Files-1",
     "page": "Tabular File IO",
     "title": "Loading Excel Files",
     "category": "section",
@@ -225,7 +225,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Stata,-SPSS,-and-SAS-Files-1",
+    "location": "fileio/#Stata,-SPSS,-and-SAS-Files-1",
     "page": "Tabular File IO",
     "title": "Stata, SPSS, and SAS Files",
     "category": "section",
@@ -233,7 +233,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Loading-Stata,-SPSS,-and-SAS-Files-1",
+    "location": "fileio/#Loading-Stata,-SPSS,-and-SAS-Files-1",
     "page": "Tabular File IO",
     "title": "Loading Stata, SPSS, and SAS Files",
     "category": "section",
@@ -241,7 +241,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Parquet-Files-1",
+    "location": "fileio/#Parquet-Files-1",
     "page": "Tabular File IO",
     "title": "Parquet Files",
     "category": "section",
@@ -249,7 +249,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Loading-Parquet-Files-1",
+    "location": "fileio/#Loading-Parquet-Files-1",
     "page": "Tabular File IO",
     "title": "Loading Parquet Files",
     "category": "section",
@@ -257,7 +257,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "fileio.html#Alternative-Packages-1",
+    "location": "fileio/#Alternative-Packages-1",
     "page": "Tabular File IO",
     "title": "Alternative Packages",
     "category": "section",
@@ -265,7 +265,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#",
+    "location": "tabletraits/#",
     "page": "Advanced - TableTraits.jl",
     "title": "Advanced - TableTraits.jl",
     "category": "page",
@@ -273,7 +273,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Advanced-TableTraits.jl-1",
+    "location": "tabletraits/#Advanced-TableTraits.jl-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Advanced - TableTraits.jl",
     "category": "section",
@@ -281,7 +281,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Overview-1",
+    "location": "tabletraits/#Overview-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Overview",
     "category": "section",
@@ -289,7 +289,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#The-iterable-tables-interface-1",
+    "location": "tabletraits/#The-iterable-tables-interface-1",
     "page": "Advanced - TableTraits.jl",
     "title": "The iterable tables interface",
     "category": "section",
@@ -297,7 +297,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Specification-1",
+    "location": "tabletraits/#Specification-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Specification",
     "category": "section",
@@ -305,7 +305,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Signaling-and-detection-of-iterable-tables-1",
+    "location": "tabletraits/#Signaling-and-detection-of-iterable-tables-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Signaling and detection of iterable tables",
     "category": "section",
@@ -313,7 +313,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Iteration-conventions-1",
+    "location": "tabletraits/#Iteration-conventions-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Iteration conventions",
     "category": "section",
@@ -321,7 +321,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Integration-Guide-1",
+    "location": "tabletraits/#Integration-Guide-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Integration Guide",
     "category": "section",
@@ -329,7 +329,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Consuming-iterable-tables-1",
+    "location": "tabletraits/#Consuming-iterable-tables-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Consuming iterable tables",
     "category": "section",
@@ -337,7 +337,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Reusing-an-existing-consumer-of-iterable-tables-1",
+    "location": "tabletraits/#Reusing-an-existing-consumer-of-iterable-tables-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Reusing an existing consumer of iterable tables",
     "category": "section",
@@ -345,7 +345,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Coding-a-complete-conversion-1",
+    "location": "tabletraits/#Coding-a-complete-conversion-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Coding a complete conversion",
     "category": "section",
@@ -353,7 +353,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Creating-an-iterable-table-source-1",
+    "location": "tabletraits/#Creating-an-iterable-table-source-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Creating an iterable table source",
     "category": "section",
@@ -361,7 +361,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Directly-implementing-the-julia-base-iteration-trait-1",
+    "location": "tabletraits/#Directly-implementing-the-julia-base-iteration-trait-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Directly implementing the julia base iteration trait",
     "category": "section",
@@ -369,7 +369,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Creating-a-custom-iteration-type-1",
+    "location": "tabletraits/#Creating-a-custom-iteration-type-1",
     "page": "Advanced - TableTraits.jl",
     "title": "Creating a custom iteration type",
     "category": "section",
@@ -377,7 +377,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#The-columns-copy-interface-[experimental]-1",
+    "location": "tabletraits/#The-columns-copy-interface-[experimental]-1",
     "page": "Advanced - TableTraits.jl",
     "title": "The columns-copy interface [experimental]",
     "category": "section",
@@ -385,7 +385,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Specification-2",
+    "location": "tabletraits/#Specification-2",
     "page": "Advanced - TableTraits.jl",
     "title": "Specification",
     "category": "section",
@@ -393,7 +393,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#The-columns-view-interface-1",
+    "location": "tabletraits/#The-columns-view-interface-1",
     "page": "Advanced - TableTraits.jl",
     "title": "The columns-view interface",
     "category": "section",
@@ -401,7 +401,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#Specification-3",
+    "location": "tabletraits/#Specification-3",
     "page": "Advanced - TableTraits.jl",
     "title": "Specification",
     "category": "section",
@@ -409,7 +409,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "tabletraits.html#The-TableTraitsUtils.jl-package-1",
+    "location": "tabletraits/#The-TableTraitsUtils.jl-package-1",
     "page": "Advanced - TableTraits.jl",
     "title": "The TableTraitsUtils.jl package",
     "category": "section",
