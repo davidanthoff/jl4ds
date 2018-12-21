@@ -37,7 +37,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Setup",
     "title": "Installing julia",
     "category": "section",
-    "text": "Installing julia is easy: you just download a version for your computer from the julia language website and then install it on your machine. Once you have installed julia, try to start it. You should see the julia REPL: a command line at which you can enter julia code and execute it by pressing Enter.All examples in this book are based on julia 0.6.x."
+    "text": "Installing julia is easy: you just download a version for your computer from the julia language website and then install it on your machine. Once you have installed julia, try to start it. You should see the julia REPL: a command line at which you can enter julia code and execute it by pressing Enter.All examples in this book are based on julia 1.0 or newer."
 },
 
 {
@@ -45,7 +45,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Setup",
     "title": "Installing the Queryverse.jl package",
     "category": "section",
-    "text": "Once julia is installed, just start it and enter the following command at the REPL:julia> Pkg.clone(\"https://github.com/davidanthoff/Queryverse.jl\")This will install the Queryverse.jl package onto your system. The Queryverse.jl package is a meta-package that pulls in a large number of other packages that you need to run the code examples in this book. You could install all of these packages one-by-one manually, but it is much easier to just install (and later use) the Queryverse.jl package instead and not worry about those details.note: Note\nThe name \"Queryverse\" is not final and I am looking for a better name. Ideas and suggestions are welcome!"
+    "text": "Once julia is installed, just start it and enter the following command in the Pkg REPL-mode:pkg> add QueryverseThis will install the Queryverse.jl package onto your system. The Queryverse.jl package is a meta-package that pulls in a large number of other packages that you need to run the code examples in this book. You could install all of these packages one-by-one manually, but it is much easier to just install (and later use) the Queryverse.jl package instead and not worry about those details."
 },
 
 {
@@ -77,7 +77,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Loading Data",
     "category": "section",
-    "text": "The main function for reading tabular data from disc is the load function from the FileIO.jl package. You always pass a filename as the first argument to the load function. For some file formats you can also pass additional arguments that control the details of how the data is loaded. You will learn about those additional arguments later in the chapter.It is often convenient to materialize the data from a tabular file into a data structure like a DataFrame. You can do that easily by passing the return value from the load function to the DataFrame constructor, like this:using Queryverse\n\ndf = DataFrame(load(\"mydata.csv\"))You can also use the pipe syntax to achieve the same result:using Queryverse\n\ndf = load(\"mydata.csv\") |> DataFrameThe pipe syntax is particularly useful when you want to apply some data transformation to the data that you are loading. For example, you can filter the data before you materialize it into a DataFrame like this:using Queryverse\n\ndf = load(\"mydata.csv\") |> @filter(_.age>20) |> DataFrameThe load function can load many different tabular file formats. The following code loads an Excel file:using Queryverse\n\ndf = load(\"mydata.xlsx\", \"Sheet1\") |> DataFrameNote how we have to pass the name of the sheet to read as a second argument to the load function for Excel files.A full list of supported file formats is provided later in this chapter.You can also use the load function to acquire data from a remote server by passing a URI as the filename. The following code loads a CSV file from a remote server:using Queryverse\n\ndf = load(\"https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/data.csv\") |> DataFrame"
+    "text": "The main function for reading tabular data from disc is the load function from the FileIO.jl package. You always pass a filename as the first argument to the load function. For some file formats you can also pass additional arguments that control the details of how the data is loaded. You will learn about those additional arguments later in the chapter.It is often convenient to materialize the data from a tabular file into a data structure like a DataFrame. You can do that easily by passing the return value from the load function to the DataFrame constructor, like this:using Queryverse\n\ndf = DataFrame(load(\"mydata.csv\"))You can also use the pipe syntax to achieve the same result:using Queryverse\n\ndf = load(\"mydata.csv\") |> DataFrameThe pipe syntax is particularly useful when you want to apply some data transformation to the data that you are loading. For example, you can filter the data before you materialize it into a DataFrame like this:using Queryverse\n\ndf = load(\"mydata.csv\") |> @filter(_.age>20) |> DataFrameThe load function can load many different tabular file formats. The following code loads an Excel file:using Queryverse\n\ndf = load(\"mydata.xlsx\", \"Sheet1\") |> DataFrameNote how we have to pass the name of the sheet to read as a second argument to the load function for Excel files.A full list of supported file formats is provided later in this chapter.You can also use the load function to acquire data from a remote server by passing a URI as the filename. The following code loads a CSV file from a remote server:using Queryverse\n\ndf = load(\"https://raw.githubusercontent.com/queryverse/CSVFiles.jl/master/test/data.csv\") |> DataFrame"
 },
 
 {
@@ -109,7 +109,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Loading CSV Files",
     "category": "section",
-    "text": "If you pass a filename with the extension *.csv to the load function, FileIO.jl will use the CSVFiles.jl package to load that file. The package supports filenames that point to a file on your local computer and URLs that point to a file on remote server:using Queryverse\n\n# Load a local file\ndf = load(\"mycsv.csv\") |> DataFrame\n\n# Load a remote file\nurl = \"https://raw.githubusercontent.com/davidanthoff/CSVFiles.jl/master/test/data.csv\"\ndf = load(url) |> DataFrame"
+    "text": "If you pass a filename with the extension *.csv to the load function, FileIO.jl will use the CSVFiles.jl package to load that file. The package supports filenames that point to a file on your local computer and URLs that point to a file on remote server:using Queryverse\n\n# Load a local file\ndf = load(\"mycsv.csv\") |> DataFrame\n\n# Load a remote file\nurl = \"https://raw.githubusercontent.com/queryverse/CSVFiles.jl/master/test/data.csv\"\ndf = load(url) |> DataFrame"
 },
 
 {
@@ -277,7 +277,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Advanced - TableTraits.jl",
     "title": "Advanced - TableTraits.jl",
     "category": "section",
-    "text": "This chapter describes the internals of various table interfaces that are defined in the TableTraits.jl package. Most data science users do not need to read this chapter, it mostly targets developers that want to integrate their own packages with the ecosystem of packages described in this book."
+    "text": "note: Note\nThis chapter describes the TableTraits.jl interface as it existed on julia 0.6. There have been some small changes for julia 1.0 that are not yet reflected in this chapter.This chapter describes the internals of various table interfaces that are defined in the TableTraits.jl package. Most data science users do not need to read this chapter, it mostly targets developers that want to integrate their own packages with the ecosystem of packages described in this book."
 },
 
 {
