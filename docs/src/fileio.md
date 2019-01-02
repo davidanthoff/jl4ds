@@ -414,6 +414,30 @@ using Queryverse
 df = load("mydata.xlsx", "Sheet1!B2:C5", header=false, colnames=["Name", "Age", "Children"]) |> DataFrame
 ```
 
+### Saving Excel Files
+
+To save a table as an Excel file, call the `save` function with a filename that has a `*.xlsx` extension. [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will then use the [ExcelFiles.jl](https://github.com/queryverse/ExcelFiles.jl) package to save the table. The following example shows how to save a table as an Excel file:
+
+```julia
+using Queryverse
+
+df = DataFrame(name=["John", "Sally"], age=[23.,25.])
+
+df |> save("mydata.xlsx")
+```
+
+#### Sheet name
+
+You can specify the name of the sheet in the Excelfile that will receive the table data via the `sheetname` keyword argument of the `save` function. The following code writes the data to a sheet with name `Custom Name`:
+
+```julia
+using Queryverse
+
+df = DataFrame(name=["John", "Sally"], age=[23.,25.])
+
+df |> save("mydata.xlsx", sheetname="Custom Name")
+```
+
 ## Stata, SPSS, and SAS Files
 
 [TODO add general description of stats files]
@@ -472,7 +496,7 @@ at:
 - [ReadStat.jl](https://github.com/WizardMac/ReadStat.jl) (*).
 - [SASLib.jl](https://github.com/tk3369/SASLib.jl).
 - [ExcelReaders.jl](https://github.com/queryverse/ExcelReaders.jl) (*).
-- [XLSX.jl](https://github.com/felipenoris/XLSX.jl).
+- [XLSX.jl](https://github.com/felipenoris/XLSX.jl) (*).
 - [Taro.jl](https://github.com/aviks/Taro.jl).
 - [Bedgraph.jl](https://github.com/CiaranOMara/Bedgraph.jl) (*).
 - [DBFTables.jl](https://github.com/JuliaData/DBFTables.jl).
