@@ -225,6 +225,22 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "fileio/#Saving-Excel-Files-1",
+    "page": "Tabular File IO",
+    "title": "Saving Excel Files",
+    "category": "section",
+    "text": "To save a table as an Excel file, call the save function with a filename that has a *.xlsx extension. FileIO.jl will then use the ExcelFiles.jl package to save the table. The following example shows how to save a table as an Excel file:using Queryverse\n\ndf = DataFrame(name=[\"John\", \"Sally\"], age=[23.,25.])\n\ndf |> save(\"mydata.xlsx\")"
+},
+
+{
+    "location": "fileio/#Sheet-name-1",
+    "page": "Tabular File IO",
+    "title": "Sheet name",
+    "category": "section",
+    "text": "You can specify the name of the sheet in the Excelfile that will receive the table data via the sheetname keyword argument of the save function. The following code writes the data to a sheet with name Custom Name:using Queryverse\n\ndf = DataFrame(name=[\"John\", \"Sally\"], age=[23.,25.])\n\ndf |> save(\"mydata.xlsx\", sheetname=\"Custom Name\")"
+},
+
+{
     "location": "fileio/#Stata,-SPSS,-and-SAS-Files-1",
     "page": "Tabular File IO",
     "title": "Stata, SPSS, and SAS Files",
@@ -261,7 +277,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Alternative Packages",
     "category": "section",
-    "text": "This section described how you can use packages from the Queryverse to load and save data. While those are useful, they are not the only julia packages that you can use for tabular file IO, in fact there are many other excellent packages for those tasks. I encourage you to explore those packages and use them whenever they are a good fit for your work. Here is an (incomplete) list of other packages you might want to take a look at:CSV.jl.\nuCSV.jl.\nTextParse.jl (*).\nReadWriteDlm2.jl.\nFeather.jl.\nFeatherLib.jl (*).\nReadStat.jl (*).\nSASLib.jl.\nExcelReaders.jl (*).\nXLSX.jl.\nTaro.jl.\nBedgraph.jl (*).\nDBFTables.jl.\nRData.jl.Note that some of these packages actually power the Queryverse file IO packages, I have denoted those packages with (*)."
+    "text": "This section described how you can use packages from the Queryverse to load and save data. While those are useful, they are not the only julia packages that you can use for tabular file IO, in fact there are many other excellent packages for those tasks. I encourage you to explore those packages and use them whenever they are a good fit for your work. Here is an (incomplete) list of other packages you might want to take a look at:CSV.jl.\nuCSV.jl.\nTextParse.jl (*).\nReadWriteDlm2.jl.\nFeather.jl.\nFeatherLib.jl (*).\nReadStat.jl (*).\nSASLib.jl.\nExcelReaders.jl (*).\nXLSX.jl (*).\nTaro.jl.\nBedgraph.jl (*).\nDBFTables.jl.\nRData.jl.Note that some of these packages actually power the Queryverse file IO packages, I have denoted those packages with (*)."
 },
 
 {
