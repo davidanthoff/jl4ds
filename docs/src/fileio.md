@@ -444,7 +444,7 @@ df |> save("mydata.xlsx", sheetname="Custom Name")
 
 ### Loading Stata, SPSS, and SAS Files
 
-You can load files that were saved in one of the formats of these statistical software packages that have the extension `*.dta`, `*.por`, `*.save` or `*.sas7bdat`. If you call the `load` function with a filename with any of these extensions, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [StatFiles.jl](https://github.com/queryverse/StatFiles.jl) package to read those files. The following code example demonstrates how you can read a file in each of these formats:
+You can load files that were saved in one of the formats of these statistical software packages that have the extension `*.dta`, `*.por`, `*.sav` or `*.sas7bdat`. If you call the `load` function with a filename with any of these extensions, [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) will use the [StatFiles.jl](https://github.com/queryverse/StatFiles.jl) package to read those files. The following code example demonstrates how you can read a file in each of these formats:
 
 ```julia
 using Queryverse
