@@ -253,7 +253,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Tabular File IO",
     "title": "Loading Stata, SPSS, and SAS Files",
     "category": "section",
-    "text": "You can load files that were saved in one of the formats of these statistical software packages that have the extension *.dta, *.por, *.save or *.sas7bdat. If you call the load function with a filename with any of these extensions, FileIO.jl will use the StatFiles.jl package to read those files. The following code example demonstrates how you can read a file in each of these formats:using Queryverse\n\ndf1 = load(\"mydata.dta\") |> DataFrame\n\ndf2 = load(\"mydata.por\") |> DataFrame\n\ndf3 = load(\"mydata.sav\") |> DataFrame\n\ndf4 = load(\"mydata.sas7bdat\") |> DataFrameThere are no further options you can specify when loading one of these files."
+    "text": "You can load files that were saved in one of the formats of these statistical software packages that have the extension *.dta, *.por, *.sav or *.sas7bdat. If you call the load function with a filename with any of these extensions, FileIO.jl will use the StatFiles.jl package to read those files. The following code example demonstrates how you can read a file in each of these formats:using Queryverse\n\ndf1 = load(\"mydata.dta\") |> DataFrame\n\ndf2 = load(\"mydata.por\") |> DataFrame\n\ndf3 = load(\"mydata.sav\") |> DataFrame\n\ndf4 = load(\"mydata.sas7bdat\") |> DataFrameThere are no further options you can specify when loading one of these files."
 },
 
 {
